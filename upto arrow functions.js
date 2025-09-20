@@ -60,4 +60,15 @@ console.log(details?.education?.UNG?.Course)
 // arrow functions 
 const sum = (a,b) => console.log((a+b));
 sum(1,2)
+
 details.education.show()
+
+console.log(details?.education?.UNG?.Course) // optional chaining 
+
+
+// Ternary Operator 
+
+let age = 19 
+//condition ? expressionIfTrue : expressionIfFalse
+
+age >= 18 ? "can drive" ? "cannot drive"
