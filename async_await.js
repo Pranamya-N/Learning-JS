@@ -65,4 +65,42 @@ makePizza();
 
   ✅ Resolve → goes to the variable and continues execution*/
 
-// the dough will contain the resolved value and the resolved value will be passed to the addTopings and similarly the prepareDough will contain the resolved value of the addToppings and it will be passed to the another function in this way the code runs 
+// the dough will contain the resolved value of the makeDough and the resolved value will be passed to the addTopings and similarly the prepareDough will contain the resolved value of the addToppings and it will be passed to the another function in this way the code runs . We can also pass the parameters to the makePizza function the example is below 
+
+
+
+// Step 1: makeDough takes size
+function makeDough(size) {
+  return new Promise((resolve) => {
+    console.log(`Making ${size} pizza dough...`);
+    setTimeout(() => resolve(size), 2000);
+  });
+}
+
+// Step 2: addToppings takes topping + dough
+function addToppings(topping, dough) {
+  return new Promise((resolve) => {
+    console.log(`Adding ${topping} to ${dough} dough...`);
+    setTimeout(() => resolve(dough + " with " + topping), 2000);
+  });
+}
+
+// Step 3: bakePizza takes prepared dough
+function bakePizza(preparedDough) {
+  return new Promise((resolve) => {
+    console.log("Baking pizza...");
+    setTimeout(() => resolve(preparedDough + " → Ready Pizza 🍕"), 2000);
+  });
+}
+
+// Step 4: async function with parameters
+async function makePizza(size, topping) {
+  const dough = await makeDough(size);       // passes size
+  const prepared = await addToppings(topping, dough); // passes topping + dough
+  const pizza = await bakePizza(prepared);   // passes prepared dough
+  console.log("🎉 Final Result:", pizza);
+}
+
+// Call with parameters
+makePizza("Large", "Cheese");
+makePizza("Small", "Pepperoni");
