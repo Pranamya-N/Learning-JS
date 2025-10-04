@@ -72,3 +72,17 @@ let age = 19
 //condition ? expressionIfTrue : expressionIfFalse
 
 age >= 18 ? "can drive" ? "cannot drive"
+
+// when we need to pass the multiple values in the function we need to use the rest operator 
+
+ let cartPrices = [200, 400, 900];
+
+function calculate_price(...amount) {
+    return amount.reduce((acc, currval) => acc + currval, 0);
+}
+
+// Spread the array so each element becomes an argument
+console.log(calculate_price(...cartPrices)); // 1500
+
+
+
