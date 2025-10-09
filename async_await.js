@@ -104,3 +104,5 @@ async function makePizza(size, topping) {
 // Call with parameters
 makePizza("Large", "Cheese");
 makePizza("Small", "Pepperoni");
+
+// NOTE : the async function always returns promises 
